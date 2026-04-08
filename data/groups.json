@@ -1,0 +1,59 @@
+[
+  {
+    "id": "tpe", "label": "TPE / APOS",
+    "icon": "creditCard", "color": "#1e6aff", "bg": "#eff6ff",
+    "items": [
+      { "label": "TPE Bloqué", "problemId": 1 },
+      { "label": "Erreur de Connexion", "problemId": 2 },
+      { "label": "Wi-Fi Introuvable", "problemId": 3 }
+    ]
+  },
+  {
+    "id": "application", "label": "Application",
+    "icon": "globe", "color": "#1e6aff", "bg": "#eff6ff",
+    "items": [
+      { "label": "Messagerie", "problemId": 6 },
+      { "label": "Connexion Azure", "problemId": 31 },
+      { "label": "Xcally", "problemId": 32 },
+      { "label": "Teams", "problemId": 20 },
+      { "label": "Office", "problemId": 23 },
+      { "label": "Siege", "problemId": 24 },
+      { "label": "Afriware", "problemId": 25 },
+      { "label": "AGL", "problemId": 26 },
+      { "label": "Micros", "problemId": 27 }
+    ]
+  },
+  {
+    "id": "materiel", "label": "Matériel",
+    "icon": "monitor", "color": "#64748b", "bg": "#f8fafc",
+    "items": [
+      { "label": "Imprimante PIN", "problemId": 7 },
+      { "label": "Imprimante Hors Ligne", "problemId": 33 },
+      { "label": "Écran", "problemId": 21 },
+      { "label": "Lecteur", "problemId": 28 },
+      { "label": "Clavier", "problemId": 22 }
+    ]
+  },
+  {
+    "id": "guide", "label": "Guide",
+    "icon": "shield", "color": "#f97316", "bg": "#fff7ed",
+    "items": [
+      { "label": "Configuration VPN WARP", "problemId": 18 },
+      { "label": "Code PIN Impression", "problemId": 7 },
+      { "label": "Mot de Passe Self-Service", "problemId": 29 },
+      { "label": "Station VID Pompiste", "problemId": 30 }
+    ]
+  },
+  {
+    "id": "caisse-ax", "label": "Caisse AX",
+    "icon": "creditCard", "color": "#ef4444", "bg": "#fef2f2",
+    "items": [
+      { "label": "Connexion caisse AX", "problemId": 13 },
+      { "label": "Tiroir caisse bloqué", "problemId": 14 },
+      { "label": "Impression ticket / journal", "problemId": 15 },
+      { "label": "Enregistrement client", "problemId": 16 },
+      { "label": "TPE Grappe – Appel attente", "problemId": 17 },
+      { "label": "PDA ATID Stock – Serveur inaccessible", "problemId": 19 }
+    ]
+  }
+]

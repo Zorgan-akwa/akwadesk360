@@ -1,0 +1,547 @@
+[
+  {
+    "id": 1, "title": "TPE Bloqué", "icon": "creditCard", "cat": "TPE / APOS",
+    "iconColor": "#1e6aff", "iconBg": "#eff6ff", "p": "P1", "pl": "URGENT",
+    "keys": ["tpe", "bloque", "bloqué", "caisse", "apos", "appel centre", "transaction"],
+    "time": "2 min", "escalateAfter": true, "phone": "0522677766",
+    "note": "Si après avoir appuyé sur 'Appel Centre' le TPE reste bloqué, appelez le support au 0522677766.",
+    "symptoms": ["L'écran affiche 'TPE BLOQUÉ' ou 'Re-fait appel centre'", "Le TPE ne répond plus aux touches", "Impossible d'effectuer une transaction"],
+    "steps": [
+      { "e": "eye", "t": "Regardez l'écran du TPE — il affiche **'TPE BLOQUÉ'** ou **'Re-fait appel centre'**" },
+      { "e": "phone", "t": "Sur l'écran du TPE, appuyez sur le bouton **'Appel Centre'**" },
+      { "e": "hourglass", "t": "Attendez que le TPE contacte le centre et se **débloque automatiquement** (30–60 sec)" },
+      { "e": "checkCircle", "t": "Si le TPE revient à l'écran normal, vous pouvez **reprendre les transactions**" }
+    ],
+    "imgs": ["problemes solution/TPE Apos/TPE Bloqué/WhatsApp Image 2026-03-28 at 14.43.25.jpeg"],
+    "video": "guide/guide connexion TPE.webm"
+  },
+  {
+    "id": 2, "title": "Erreur de Connexion", "icon": "wifi", "cat": "TPE / APOS",
+    "iconColor": "#f59e0b", "iconBg": "#fefce8", "p": "P2", "pl": "IMPORTANT",
+    "keys": ["erreur connexion", "pas de connexion", "internet off", "doms", "pas internet", "connexion perdue"],
+    "time": "2 min",
+    "note": "Si le réseau r2f01m6 n'apparaît pas dans la liste, consultez le problème 'Wi-Fi Introuvable'.",
+    "symptoms": ["Message 'Pas de connexion' ou 'Erreur DOMS'", "Applications ne se chargent pas", "Erreur téléchargement des fichiers"],
+    "steps": [
+      { "e": "smartphone", "t": "Sur le TPE, cliquez sur l'icône **Connect Wi-Fi**" },
+      { "e": "settings", "t": "Cochez le bouton **Hidden Wi-Fi**" },
+      { "e": "checkCircle", "t": "Cliquez sur **OK** 3 fois ou plus" },
+      { "e": "wifi", "t": "Choisissez **r2f01m6** dans la liste Wi-Fi" }
+    ],
+    "imgs": [
+      "problemes solution/TPE Apos/Erreur de Connexion TPE/WhatsApp Image 2026-03-28 at 14.30.58.jpeg",
+      "problemes solution/TPE Apos/Erreur de Connexion TPE/WhatsApp Image 2026-03-28 at 14.34.42.jpeg",
+      "problemes solution/TPE Apos/Erreur de Connexion TPE/WhatsApp Image 2026-03-28 at 14.42.33.jpeg",
+      "problemes solution/TPE Apos/Erreur de Connexion TPE/WhatsApp Image 2026-03-28 at 14.43.24.jpeg",
+      "problemes solution/TPE Apos/Erreur de Connexion TPE/WhatsApp Image 2026-03-28 at 14.43.24 (1).jpeg",
+      "problemes solution/TPE Apos/Erreur de Connexion TPE/WhatsApp Image 2026-03-28 at 14.43.24 (3).jpeg",
+      "problemes solution/TPE Apos/Erreur de Connexion TPE/WhatsApp Image 2026-03-28 at 14.43.25 (1).jpeg"
+    ],
+    "video": "guide/guide connexion TPE.webm"
+  },
+  {
+    "id": 3, "title": "Wi-Fi Introuvable", "icon": "wifiOff", "cat": "TPE / APOS",
+    "iconColor": "#ef4444", "iconBg": "#fef2f2", "p": "P2", "pl": "IMPORTANT",
+    "keys": ["wifi disparait", "réseau absent", "wifi introuvable", "réseau akwa disparu", "wi-fi manquant", "r2f01m6"],
+    "time": "5 min",
+    "note": "Si impossible de supprimer les réseaux, redémarrez l'appareil d'abord puis recommencez.",
+    "symptoms": ["Le réseau Akwa n'apparaît pas dans la liste", "Seulement d'autres réseaux visibles", "Le réseau a disparu soudainement"],
+    "steps": [
+      { "e": "smartphone", "t": "Glissez la **barre du haut vers le bas** → Restez appuyé sur l'**icône Wi-Fi**" },
+      { "e": "clipboard", "t": "Cliquez sur **'Réseaux enregistrés'**" },
+      { "e": "trash", "t": "Sélectionnez les Wi-Fi enregistrés et cliquez **'Supprimer'**" },
+      { "e": "wifi", "t": "Cliquez sur l'icône **'Connect Wi-Fi'**" },
+      { "e": "settings", "t": "Cochez le bouton **'Hidden Wi-Fi'**" },
+      { "e": "checkCircle", "t": "Cliquer sur **'OK'** 3 fois ou plusieurs fois" },
+      { "e": "wifi", "t": "Choisir **'r2f01m6'** dans les paramètres Wi-Fi" }
+    ],
+    "imgs": [
+      "problemes solution/TPE Apos/Wi-Fi Introuvable TPE/WhatsApp Image 2026-03-28 at 14.32.25.jpeg",
+      "problemes solution/TPE Apos/Wi-Fi Introuvable TPE/WhatsApp Image 2026-03-28 at 14.33.00.jpeg",
+      "problemes solution/TPE Apos/Wi-Fi Introuvable TPE/WhatsApp Image 2026-03-28 at 14.43.24 (2).jpeg"
+    ],
+    "video": "guide/guide connexion TPE.webm"
+  },
+  {
+    "id": 4, "title": "Odoo Inaccessible", "icon": "globe", "cat": "Applications",
+    "iconColor": "#8b5cf6", "iconBg": "#f5f3ff", "p": "P2", "pl": "IMPORTANT",
+    "keys": ["odoo inaccessible", "site inaccessible", "odoo erreur", "odoo ne se charge pas", "err_connection", "err_invalid"],
+    "time": "3–5 min",
+    "note": "Si le problème persiste, redémarrez l'ordinateur. Si l'erreur revient régulièrement, créez un ticket L2.",
+    "symptoms": ["Message 'Ce site est inaccessible'", "Odoo ne se charge pas du tout", "Erreur ERR_CONNECTION_REFUSED ou ERR_INVALID_RESPONSE"],
+    "steps": [
+      { "e": "globe", "t": "Ouvrez votre navigateur **(Chrome ou Firefox)**" },
+      { "e": "monitor", "t": "Appuyez sur **Ctrl + Shift + Delete** (ou Cmd+Shift+Delete sur Mac)" },
+      { "e": "calendar", "t": "Sélectionnez la plage **'Tout le temps'**" },
+      { "e": "checkCircle", "t": "Cochez **Cookies et données de site** et **Images et fichiers en cache**" },
+      { "e": "trash", "t": "Cliquez **'Effacer les données'**" },
+      { "e": "clock", "t": "Fermez **complètement** le navigateur — attendez 10 secondes" },
+      { "e": "refreshCw", "t": "Relancez le navigateur et accédez à **odoo.akwagroup.ma**" }
+    ]
+  },
+  {
+    "id": 5, "title": "Application Lente", "icon": "hourglass", "cat": "Applications",
+    "iconColor": "#06b6d4", "iconBg": "#ecfeff", "p": "P3", "pl": "NORMAL",
+    "keys": ["application lente", "app lente", "lenteur", "apos lent", "chargement long", "app qui rame", "freeze", "écran de chargement"],
+    "time": "3 min",
+    "note": "Si la lenteur persiste après redémarrage, vérifiez la qualité du signal Wi-Fi (voir 'Internet Lent').",
+    "symptoms": ["L'application met longtemps à charger", "Écran de chargement indéfini", "L'app répond lentement aux actions"],
+    "steps": [
+      { "e": "wifi", "t": "Vérifiez que le Wi-Fi est connecté au réseau **r2f01m6**" },
+      { "e": "refreshCw", "t": "Fermez complètement l'application et **relancez-la**" },
+      { "e": "trash", "t": "Dans l'app, allez dans **Paramètres → Vider le cache** si l'option existe" },
+      { "e": "smartphone", "t": "Si toujours lente, **redémarrez l'appareil** (appui long → Redémarrer)" },
+      { "e": "checkCircle", "t": "Relancez l'application après le redémarrage et vérifiez la réactivité" }
+    ]
+  },
+  {
+    "id": 6, "title": "Problème Email", "icon": "mail", "cat": "Applications",
+    "iconColor": "#10b981", "iconBg": "#ecfdf5", "p": "P3", "pl": "NORMAL",
+    "keys": ["email", "mail", "outlook", "messagerie", "emails ne s'envoient pas", "boite mail", "inbox"],
+    "time": "5 min",
+    "note": "Si le problème touche plusieurs collègues simultanément, c'est probablement un incident serveur.",
+    "symptoms": ["Impossible d'envoyer ou recevoir des emails", "Outlook ne se connecte pas", "Boîte mail inaccessible"],
+    "steps": [
+      { "e": "globe", "t": "Vérifiez votre **connexion internet** (Wi-Fi connecté et fonctionnel)" },
+      { "e": "globe", "t": "Ouvrez le navigateur et accédez à **mail.akwagroup.com** — entrez votre login et mot de passe" },
+      { "e": "globe", "t": "Si même problème, testez le lien de secours : **outlook.office.com** et authentifiez-vous avec votre session" },
+      { "e": "refreshCw", "t": "Pour Outlook Desktop : fermez complètement et **relancez l'application**" },
+      { "e": "monitor", "t": "Si Outlook affiche 'Déconnecté', cliquez et choisissez **'Travailler en ligne'**" },
+      { "e": "refreshCw", "t": "Si rien n'a fonctionné, **redémarrez** l'ordinateur" }
+    ],
+    "imgs": ["problemes solution/problème boite mail/Image (1).jfif"]
+  },
+  {
+    "id": 7, "title": "Code PIN Impression", "icon": "printer", "cat": "Impression",
+    "iconColor": "#f97316", "iconBg": "#fff7ed", "p": "P3", "pl": "NORMAL",
+    "keys": ["pin oublié", "code pin", "imprimer", "impression", "imprimante", "myq", "pin perdu"],
+    "guideFile": "guide/IMPRIMANTES - RECUPERATION DU CODE PIN.pdf",
+    "time": "2 min",
+    "symptoms": ["Impossible de se connecter pour imprimer", "Code PIN oublié ou expiré", "Accès MyQ refusé"],
+    "steps": [
+      { "e": "globe", "t": "Ouvrez votre navigateur et allez sur **https://srv-myq-01:8090/**" },
+      { "e": "key", "t": "Cliquez sur le bouton **PIN Perdu**" },
+      { "e": "mail", "t": "Renseignez votre **adresse mail professionnelle** puis cliquez **Envoyer**" },
+      { "e": "inbox", "t": "Ouvrez votre messagerie — copiez le **PIN de réinitialisation** reçu" },
+      { "e": "cornerDownLeft", "t": "Retournez sur **srv-myq-01:8090** et recliquez **PIN Perdu**" },
+      { "e": "clipboard", "t": "Collez le PIN dans **'J'ai le code PIN de réinitialisation'** → Envoyer" },
+      { "e": "checkCircle", "t": "Votre **nouveau code PIN** arrive par mail — utilisez-le pour imprimer" }
+    ]
+  },
+  {
+    "id": 8, "title": "Mot de Passe Oublié", "icon": "lock", "cat": "Compte",
+    "iconColor": "#6366f1", "iconBg": "#eef2ff", "p": "P3", "pl": "NORMAL",
+    "keys": ["mot de passe oublié", "password", "mdp", "réinitialiser", "compte bloqué", "accès refusé", "connexion impossible"],
+    "time": "5 min",
+    "note": "Après 5 tentatives échouées consécutives, le compte est verrouillé — contactez le support IT.",
+    "symptoms": ["Impossible de se connecter", "Erreur 'Identifiants incorrects'", "Compte verrouillé après plusieurs tentatives"],
+    "steps": [
+      { "e": "link", "t": "Sur la page de connexion, cliquez sur **'Mot de passe oublié'**" },
+      { "e": "mail", "t": "Entrez votre **adresse email professionnelle** (@akwagroup.ma)" },
+      { "e": "inbox", "t": "Consultez votre boîte mail et cliquez sur le **lien de réinitialisation**" },
+      { "e": "key", "t": "Choisissez un **nouveau mot de passe** (min. 8 caractères, 1 majuscule, 1 chiffre)" },
+      { "e": "folder", "t": "Si aucun email après 5 minutes, vérifiez les **spams / courriers indésirables**" }
+    ]
+  },
+  {
+    "id": 9, "title": "Application Plantée", "icon": "zap", "cat": "Applications",
+    "iconColor": "#f59e0b", "iconBg": "#fefce8", "p": "P2", "pl": "IMPORTANT",
+    "keys": ["application ferme", "crash app", "app plante", "crashe", "app se ferme", "force close"],
+    "time": "3 min",
+    "note": "Si l'app crashe systématiquement après redémarrage, créez un ticket avec le message d'erreur exact.",
+    "symptoms": ["L'application se ferme toute seule", "Message d'erreur puis fermeture forcée", "L'app ne s'ouvre plus du tout"],
+    "steps": [
+      { "e": "smartphone", "t": "Appui long sur l'icône de l'app → **Forcer l'arrêt** (ou glisser pour fermer)" },
+      { "e": "trash", "t": "Allez dans **Paramètres → Applications → [Nom de l'app] → Vider le cache**" },
+      { "e": "refreshCw", "t": "**Redémarrez l'appareil** (appui long sur bouton power → Redémarrer)" },
+      { "e": "smartphone", "t": "Relancez l'application — si elle demande une mise à jour, **acceptez-la**" },
+      { "e": "checkCircle", "t": "Testez l'application pour vérifier qu'elle fonctionne normalement" }
+    ]
+  },
+  {
+    "id": 10, "title": "PC Lent / Planté", "icon": "monitor", "cat": "Matériel",
+    "iconColor": "#64748b", "iconBg": "#f8fafc", "p": "P3", "pl": "NORMAL",
+    "keys": ["ordinateur lent", "pc lent", "freeze", "écran gelé", "pc qui plante", "pc bloqué", "windows lent"],
+    "time": "5 min",
+    "note": "Si les ralentissements sont quotidiens ou si l'ordinateur est très chaud, créez un ticket matériel.",
+    "symptoms": ["Ordinateur très lent ou complètement figé", "Souris / clavier qui ne répondent plus", "Windows très lent au démarrage"],
+    "steps": [
+      { "e": "save", "t": "**Enregistrez** votre travail immédiatement si l'ordinateur répond encore" },
+      { "e": "x", "t": "Fermez les **onglets et applications inutiles** (clic droit → Fermer)" },
+      { "e": "monitor", "t": "Si gelé : appuyez sur **Ctrl + Alt + Suppr → Gestionnaire des tâches**" },
+      { "e": "logOut", "t": "Fermez les processus consommant **>80% CPU ou mémoire**" },
+      { "e": "refreshCw", "t": "**Redémarrez complètement** : Démarrer → Redémarrer (pas juste veille)" }
+    ]
+  },
+  {
+    "id": 11, "title": "Internet Lent / Coupure", "icon": "activity", "cat": "Réseau",
+    "iconColor": "#0ea5e9", "iconBg": "#f0f9ff", "p": "P2", "pl": "IMPORTANT",
+    "keys": ["internet lent", "connexion lente", "coupure internet", "débit faible", "chargement lent", "réseau lent"],
+    "time": "3 min",
+    "note": "Si les LEDs sont rouges, c'est une coupure opérateur — signalez-le au support pour qu'il contacte l'opérateur.",
+    "symptoms": ["Pages qui chargent très lentement", "Coupures internet fréquentes", "Téléchargements qui s'arrêtent"],
+    "steps": [
+      { "e": "zap", "t": "Regardez les **LEDs du routeur MIKROTIK** — elles doivent être allumées et clignoter" },
+      { "e": "plug", "t": "Vérifiez que le **câble réseau** est bien branché entre les deux routeurs" },
+      { "e": "activity", "t": "Routeur **Fibre** : LED 'Pont' = verte (OK), LED 'Internet' = verte ou clignotante (OK), rouge = coupure" },
+      { "e": "wifi", "t": "Routeur **4G** : LED bleue = 4G (OK), verte = 3G (attention), rouge = problème carte SIM" },
+      { "e": "refreshCw", "t": "**Redémarrez** votre ordinateur et attendez 2 minutes avant de retester" }
+    ]
+  },
+  {
+    "id": 12, "title": "Alerte Antivirus", "icon": "shield", "cat": "Sécurité",
+    "iconColor": "#dc2626", "iconBg": "#fef2f2", "p": "P2", "pl": "IMPORTANT",
+    "keys": ["antivirus", "virus", "alerte sécurité", "menace détectée", "malware", "fichier infecté", "windows defender", "popup virus"],
+    "time": "5 min",
+    "note": "Ne jamais appeler un numéro affiché dans un popup antivirus — c'est une arnaque. Contactez directement le support.",
+    "symptoms": ["Notification Windows Defender qui s'affiche", "Message 'Menace détectée' ou 'Virus trouvé'", "Popup de sécurité dans le navigateur"],
+    "steps": [
+      { "e": "alertTriangle", "t": "**Ne cliquez sur rien** dans la fenêtre suspecte pour l'instant" },
+      { "e": "search", "t": "Vérifiez que l'alerte vient bien de **Windows Defender** (icône bouclier barre des tâches)" },
+      { "e": "checkCircle", "t": "Si c'est Windows Defender : cliquez **'Supprimer la menace'** ou **'Mettre en quarantaine'**" },
+      { "e": "xCircle", "t": "Si c'est un popup dans le navigateur : **fermez l'onglet** — ne cliquez jamais les boutons" },
+      { "e": "refreshCw", "t": "Lancez un scan : Paramètres → **Sécurité Windows** → Protection antivirus → Analyse rapide" }
+    ]
+  },
+  {
+    "id": 13, "title": "Connexion DB Caisse AX", "icon": "monitor", "cat": "Caisse AX",
+    "iconColor": "#ef4444", "iconBg": "#fef2f2", "p": "P1", "pl": "URGENT",
+    "keys": ["retail pos", "base de données", "bd", "db", "connexion caisse", "connexion db", "db ax", "db caisse", "caisse ax", "ax pos", "impossible se connecter", "hors connexion", "aks-hmag", "connexion ax"],
+    "time": "5 min",
+    "note": "Si le ping vers AKS-HMAG échoue, le problème est réseau — vérifiez le switch avant d'escalader.",
+    "symptoms": ["Message 'Retail POS ne peut pas se connecter à une base de données'", "Message 'Impossible de basculer dans la base de données hors connexion'", "La caisse ne démarre pas"],
+    "steps": [
+      { "e": "wifi", "t": "Vérifiez la **connexion réseau** de la caisse (câble RJ45 branché, LEDs allumées)" },
+      { "e": "plug", "t": "Vérifiez le **câble RJ45** et le port du switch auquel la caisse est connectée" },
+      { "e": "monitor", "t": "Ouvrez l'invite de commandes et tapez : **ping AKS-HMAG** — attendez les réponses" },
+      { "e": "checkCircle", "t": "Si le **ping répond** → redémarrez la caisse et le service AX, puis retestez" },
+      { "e": "x", "t": "Si le **ping échoue** → vérifiez le switch et le réseau magasin, puis escaladez si nécessaire" }
+    ]
+  },
+  {
+    "id": 14, "title": "Tiroir Caisse Bloqué", "icon": "zap", "cat": "Caisse AX",
+    "iconColor": "#f59e0b", "iconBg": "#fefce8", "p": "P2", "pl": "IMPORTANT",
+    "keys": ["tiroir caisse", "tiroir bloqué", "tiroir ne s'ouvre pas", "caisse ne s'ouvre pas", "drawer", "imprimante caisse"],
+    "time": "3 min",
+    "note": "Le tiroir caisse s'ouvre via l'imprimante — si l'imprimante est éteinte ou en erreur, le tiroir reste fermé.",
+    "symptoms": ["Impossible d'ouvrir le tiroir caisse", "Le tiroir ne réagit pas à la commande", "Lampe rouge sur l'imprimante caisse"],
+    "steps": [
+      { "e": "alertCircle", "t": "Vérifiez l'état de l'imprimante caisse — une **lampe rouge clignotante** indique une erreur" },
+      { "e": "plug", "t": "Vérifiez que le **câble du tiroir caisse** est bien branché à l'arrière de l'imprimante" },
+      { "e": "zap", "t": "Vérifiez que l'**imprimante est allumée** et que son voyant indique 'Prête'" },
+      { "e": "refreshCw", "t": "**Redémarrez l'imprimante** caisse (éteignez, attendez 10 sec, rallumez)" },
+      { "e": "checkCircle", "t": "Une fois l'imprimante prête, **testez l'ouverture** du tiroir depuis la caisse" }
+    ]
+  },
+  {
+    "id": 15, "title": "Impression Ticket / Journal", "icon": "printer", "cat": "Caisse AX",
+    "iconColor": "#f97316", "iconBg": "#fff7ed", "p": "P2", "pl": "IMPORTANT",
+    "keys": ["impression ticket", "imprimer ticket", "ticket de caisse", "rapport journal", "imprimante caisse", "imprimante ne répond pas", "com2"],
+    "time": "3 min",
+    "note": "Le câble de l'imprimante caisse se branche sur le port COM2 — vérifiez ce port spécifiquement.",
+    "symptoms": ["Impossible d'imprimer le ticket de caisse", "L'impression du rapport journal échoue", "Lampe d'erreur rouge sur l'imprimante"],
+    "steps": [
+      { "e": "alertCircle", "t": "Vérifiez si une **lampe rouge d'erreur** clignote sur l'imprimante" },
+      { "e": "plug", "t": "Vérifiez que le **câble imprimante** est bien branché à la caisse sur le **port COM2**" },
+      { "e": "fileText", "t": "Vérifiez que le **rouleau de ticket** est correctement installé dans l'imprimante" },
+      { "e": "clipboard", "t": "Vérifiez qu'il y a bien du **papier** dans l'imprimante (rouleau non vide)" },
+      { "e": "refreshCw", "t": "**Redémarrez l'imprimante** puis effectuez un **test d'impression** depuis la caisse" }
+    ]
+  },
+  {
+    "id": 16, "title": "Enregistrement Client Impossible", "icon": "clock", "cat": "Caisse AX",
+    "iconColor": "#8b5cf6", "iconBg": "#f5f3ff", "p": "P2", "pl": "IMPORTANT",
+    "keys": ["enregistrer client", "nouveau client", "client caisse", "synchronisation horloge", "date heure caisse", "ax client"],
+    "time": "3 min",
+    "note": "Un décalage d'horloge même minime peut bloquer la synchronisation des données client dans AX.",
+    "symptoms": ["Impossible d'enregistrer un nouveau client", "Erreur lors de la création de fiche client", "La caisse rejette les nouvelles entrées client"],
+    "steps": [
+      { "e": "clock", "t": "Vérifiez la **synchronisation de l'horloge** de la caisse (heure système)" },
+      { "e": "calendar", "t": "Confirmez que la **date et l'heure** affichées sur la caisse sont correctes" },
+      { "e": "settings", "t": "Si nécessaire, **corrigez le réglage de l'horloge** : Panneau de config → Date et heure" },
+      { "e": "refreshCw", "t": "**Relancez** la caisse ou l'application AX après la correction" },
+      { "e": "checkCircle", "t": "**Refaites le test** d'enregistrement du client pour confirmer la résolution" }
+    ]
+  },
+  {
+    "id": 17, "title": "TPE Grappe – Appel Attente", "icon": "creditCard", "cat": "Caisse AX",
+    "iconColor": "#1e6aff", "iconBg": "#eff6ff", "p": "P2", "pl": "IMPORTANT",
+    "keys": ["tpe grappe", "appel attente", "annuler tpe", "grappe", "connexion grappe", "test grappe", "tpe attente"],
+    "time": "5 min", "escalateAfter": true,
+    "note": "Si le test de connexion Grappe échoue, escaladez au Niveau 2 — ne pas tenter de reconfigurer le TPE.",
+    "symptoms": ["TPE affiche 'Appel attente' ou 'Annuler'", "Impossible d'effectuer une transaction via le TPE Grappe", "Le TPE reste bloqué sur l'écran d'attente"],
+    "steps": [
+      { "e": "plug", "t": "Vérifiez que le **câble réseau** est bien branché au TPE sur le **port ETH**" },
+      { "e": "server", "t": "Vérifiez le **câble côté prise réseau / switch** — testez un autre port si disponible" },
+      { "e": "refreshCw", "t": "**Redémarrez le TPE** (éteignez complètement, attendez 30 sec, rallumez)" },
+      { "e": "activity", "t": "Sur le TPE, lancez un **test de connexion Grappe** depuis le menu de diagnostic" },
+      { "e": "checkCircle", "t": "Si le test est **OK** → TPE opérationnel, reprenez les transactions" },
+      { "e": "phone", "t": "Si le test **échoue** → escaladez au **Niveau 2** (ne pas reconfigurer le TPE)" }
+    ]
+  },
+  {
+    "id": 19, "title": "PDA ATID Stock – Serveur Inaccessible", "icon": "wifi", "cat": "Caisse AX",
+    "iconColor": "#ef4444", "iconBg": "#fef2f2", "p": "P2", "pl": "IMPORTANT",
+    "keys": ["pda", "atid", "sdstock", "stock", "serveur inaccessible", "pda stock", "connexion sdstock", "pda wifi", "magasin stock"],
+    "time": "5 min",
+    "note": "Si après ces vérifications SDSTOCK reste inaccessible, escaladez au support N2.",
+    "symptoms": ["Message 'Serveur inaccessible' dans SDSTOCK", "Impossible de se connecter à SDSTOCK depuis le PDA", "L'application SDSTOCK ne répond pas"],
+    "steps": [
+      { "e": "wifi", "t": "Vérifiez que le PDA est connecté au **Wi-Fi magasin stock** (réseau dédié stock)" },
+      { "e": "settings", "t": "Ouvrez **Wireless Manager** sur le PDA → vérifiez que **WLAN = ON**" },
+      { "e": "zap", "t": "Si le Wi-Fi est **désactivé** → activez-le et attendez la reconnexion au réseau" },
+      { "e": "monitor", "t": "Allez dans **Settings → Connections → Network Cards**" },
+      { "e": "checkCircle", "t": "Dans *'My network card connects to'*, vérifiez que **'The Internet'** est sélectionné (et non 'Work')" },
+      { "e": "refreshCw", "t": "**Relancez l'application SDSTOCK** et refaites le test de connexion" }
+    ]
+  },
+  {
+    "id": 20, "title": "Microsoft Teams – Problème", "icon": "smartphone", "cat": "Applications",
+    "iconColor": "#5558af", "iconBg": "#eef0ff", "p": "P2", "pl": "IMPORTANT",
+    "keys": ["teams", "microsoft teams", "teams ne s'ouvre pas", "teams déconnecté", "réunion teams", "micro teams", "caméra teams", "appel teams"],
+    "time": "5 min",
+    "note": "Si Teams ne se lance pas du tout après redémarrage, désinstallez et réinstallez l'application.",
+    "symptoms": ["Teams ne démarre pas ou se ferme au lancement", "Impossible de rejoindre ou créer une réunion", "Micro ou caméra ne fonctionnent pas dans Teams"],
+    "steps": [
+      { "e": "globe", "t": "Vérifiez votre **connexion internet** — Teams nécessite une connexion active" },
+      { "e": "xCircle", "t": "Fermez Teams complètement : clic droit sur l'icône en barre des tâches → **Quitter**" },
+      { "e": "refreshCw", "t": "Relancez Teams et **reconnectez-vous** avec votre compte @akwagroup.ma" },
+      { "e": "trash", "t": "Si toujours bloqué : **videz le cache Teams** — Paramètres Teams → Général → Effacer le cache" },
+      { "e": "settings", "t": "Vérifiez les **permissions micro/caméra** : Paramètres Windows → Confidentialité → Micro / Caméra" },
+      { "e": "refreshCw", "t": "**Redémarrez l'ordinateur** et relancez Teams pour finaliser la résolution" }
+    ]
+  },
+  {
+    "id": 21, "title": "Écran – Pas d'Affichage", "icon": "monitor", "cat": "Matériel",
+    "iconColor": "#64748b", "iconBg": "#f8fafc", "p": "P2", "pl": "IMPORTANT",
+    "keys": ["écran noir", "ecran noir", "pas d'image", "moniteur éteint", "affichage", "écran clignote", "no signal", "pas de signal", "moniteur", "écran éteint"],
+    "time": "3 min",
+    "note": "Si l'écran affiche 'No Signal' après toutes ces vérifications, le câble vidéo peut être défectueux — créez un ticket matériel.",
+    "symptoms": ["Écran noir ou sans image au démarrage", "Message 'No Signal' ou 'Signal Non Détecté'", "L'écran clignote ou l'image est instable"],
+    "steps": [
+      { "e": "plug", "t": "Vérifiez le **câble d'alimentation** de l'écran — branchez-le fermement des deux côtés" },
+      { "e": "monitor", "t": "Vérifiez le **câble vidéo** (HDMI / VGA / DisplayPort) côté écran et côté ordinateur" },
+      { "e": "zap", "t": "Appuyez sur le **bouton Power de l'écran** pour confirmer qu'il est bien allumé" },
+      { "e": "settings", "t": "Utilisez les **boutons physiques de l'écran** pour vérifier que la luminosité n'est pas au minimum" },
+      { "e": "refreshCw", "t": "Appuyez sur **Win + P** et sélectionnez **Dupliquer** ou **Étendre** pour forcer le signal" },
+      { "e": "refreshCw", "t": "**Redémarrez l'ordinateur** — l'écran devrait détecter automatiquement le signal" }
+    ]
+  },
+  {
+    "id": 22, "title": "Clavier – Ne Répond Pas", "icon": "clipboard", "cat": "Matériel",
+    "iconColor": "#64748b", "iconBg": "#f8fafc", "p": "P3", "pl": "NORMAL",
+    "keys": ["clavier bloqué", "clavier ne fonctionne pas", "touches bloquées", "clavier usb", "saisie impossible", "keyboard", "clavier muet", "verr maj", "clavier sans fil"],
+    "time": "3 min",
+    "note": "Pour les claviers sans fil, vérifiez en priorité le niveau des piles ou la charge de la batterie.",
+    "symptoms": ["Le clavier ne répond à aucune touche", "Certaines touches sont bloquées ou ne répondent plus", "Le clavier n'est pas reconnu par Windows"],
+    "steps": [
+      { "e": "plug", "t": "Vérifiez que le **câble USB du clavier** est bien branché dans le port (essayez un autre port)" },
+      { "e": "refreshCw", "t": "**Débranchez** puis **rebranchez** le câble USB — attendez 5 secondes entre les deux" },
+      { "e": "lock", "t": "Vérifiez si la touche **Verr Maj** ou **Verr Num** bloque la saisie — désactivez-la" },
+      { "e": "settings", "t": "Allez dans **Paramètres → Heure et langue → Langue** → vérifiez la disposition clavier (Français)" },
+      { "e": "monitor", "t": "Vérifiez dans le **Gestionnaire de périphériques** que le clavier est reconnu (pas de triangle jaune)" },
+      { "e": "refreshCw", "t": "**Redémarrez l'ordinateur** — Windows réinstallera automatiquement les pilotes du clavier" }
+    ]
+  },
+  {
+    "id": 23, "title": "Microsoft Office – Problème", "icon": "fileText", "cat": "Applications",
+    "iconColor": "#ea580c", "iconBg": "#fff7ed", "p": "P2", "pl": "IMPORTANT",
+    "keys": ["word", "excel", "powerpoint", "office", "microsoft 365", "licence office", "activation office", "word ne s'ouvre pas", "excel crash", "office lent", "microsoft office"],
+    "time": "5 min",
+    "note": "Si l'activation échoue même avec une bonne connexion, votre licence 365 a peut-être expiré — contactez le support.",
+    "symptoms": ["Word / Excel / PowerPoint ne s'ouvre pas", "Message 'Activation requise' ou produit non activé", "Fichier Office ne s'ouvre pas ou est corrompu"],
+    "steps": [
+      { "e": "globe", "t": "Vérifiez votre **connexion internet** — l'activation Microsoft 365 nécessite une connexion" },
+      { "e": "xCircle", "t": "**Fermez complètement** l'application Office concernée et relancez-la" },
+      { "e": "user", "t": "Si activation demandée : **connectez-vous** avec votre compte @akwagroup.ma" },
+      { "e": "settings", "t": "Si Office est lent : désactivez les compléments — **Fichier → Options → Compléments → Désactiver tout**" },
+      { "e": "refreshCw", "t": "**Redémarrez l'ordinateur** — cela résout la plupart des blocages d'activation temporaires" },
+      { "e": "checkCircle", "t": "Si l'erreur persiste : **Panneau de configuration → Office → Modifier → Réparation rapide**" }
+    ]
+  },
+  {
+    "id": 24, "title": "Application Siege – Problème", "icon": "building", "cat": "Applications",
+    "iconColor": "#0ea5e9", "iconBg": "#f0f9ff", "p": "P2", "pl": "IMPORTANT",
+    "keys": ["siege", "application siege", "siège", "siege inaccessible", "connexion siege", "siege qui plante"],
+    "time": "5 min",
+    "note": "Si d'autres collègues ont le même problème, il s'agit probablement d'un incident serveur — escaladez directement.",
+    "symptoms": ["L'application Siege ne démarre pas ou plante", "Impossible de se connecter à Siege", "Siege affiche une erreur de connexion"],
+    "steps": [
+      { "e": "globe", "t": "Vérifiez votre **connexion internet et réseau local** (câble / Wi-Fi actif)" },
+      { "e": "xCircle", "t": "**Fermez complètement** Siege et relancez l'application" },
+      { "e": "key", "t": "Vérifiez vos **identifiants de connexion** (compte Akwa Group à jour)" },
+      { "e": "monitor", "t": "Vérifiez si **d'autres collègues** ont le même problème — si oui, c'est un incident serveur" },
+      { "e": "refreshCw", "t": "**Redémarrez votre ordinateur** et relancez l'application Siege" },
+      { "e": "phone", "t": "Si le problème persiste, **créez un ticket de support N2** avec le message d'erreur exact" }
+    ]
+  },
+  {
+    "id": 25, "title": "Afriware – Problème", "icon": "folder", "cat": "Applications",
+    "iconColor": "#8b5cf6", "iconBg": "#f5f3ff", "p": "P2", "pl": "IMPORTANT",
+    "keys": ["afriware", "afriwir", "application afriware", "afriware inaccessible", "afriware qui plante", "connexion afriware"],
+    "time": "5 min",
+    "note": "Si d'autres collègues ont le même problème, il s'agit probablement d'un incident serveur — escaladez directement.",
+    "symptoms": ["Afriware ne démarre pas ou se ferme", "Impossible de se connecter à Afriware", "Afriware affiche une erreur de connexion ou de données"],
+    "steps": [
+      { "e": "globe", "t": "Vérifiez votre **connexion internet et réseau local** (câble / Wi-Fi actif)" },
+      { "e": "xCircle", "t": "**Fermez complètement** Afriware et relancez l'application" },
+      { "e": "key", "t": "Vérifiez vos **identifiants de connexion** (compte Akwa Group à jour)" },
+      { "e": "monitor", "t": "Vérifiez si **d'autres collègues** ont le même problème — si oui, c'est un incident serveur" },
+      { "e": "refreshCw", "t": "**Redémarrez votre ordinateur** et relancez Afriware" },
+      { "e": "phone", "t": "Si le problème persiste, **créez un ticket de support N2** avec le message d'erreur exact" }
+    ]
+  },
+  {
+    "id": 26, "title": "AGL – Problème", "icon": "server", "cat": "Applications",
+    "iconColor": "#0ea5e9", "iconBg": "#f0f9ff", "p": "P2", "pl": "IMPORTANT",
+    "keys": ["agl", "application agl", "agl inaccessible", "agl qui plante", "connexion agl"],
+    "time": "5 min",
+    "note": "Si d'autres collègues ont le même problème, il s'agit probablement d'un incident serveur — escaladez directement.",
+    "symptoms": ["L'application AGL ne démarre pas ou plante", "Impossible de se connecter à AGL", "AGL affiche une erreur de connexion"],
+    "steps": [
+      { "e": "globe", "t": "Vérifiez votre **connexion internet et réseau local** (câble / Wi-Fi actif)" },
+      { "e": "xCircle", "t": "**Fermez complètement** AGL et relancez l'application" },
+      { "e": "key", "t": "Vérifiez vos **identifiants de connexion** (compte Akwa Group à jour)" },
+      { "e": "monitor", "t": "Vérifiez si **d'autres collègues** ont le même problème — si oui, c'est un incident serveur" },
+      { "e": "refreshCw", "t": "**Redémarrez votre ordinateur** et relancez l'application AGL" },
+      { "e": "phone", "t": "Si le problème persiste, **créez un ticket de support N2** avec le message d'erreur exact" }
+    ]
+  },
+  {
+    "id": 27, "title": "Micros – Problème", "icon": "monitor", "cat": "Applications",
+    "iconColor": "#f59e0b", "iconBg": "#fefce8", "p": "P2", "pl": "IMPORTANT",
+    "keys": ["micros", "pos micros", "application micros", "caisse micros", "micros ne s'ouvre pas", "micros erreur"],
+    "time": "5 min",
+    "note": "Micros est une application POS critique — si elle ne répond pas, escaladez sans attendre au support N2.",
+    "symptoms": ["L'application Micros ne démarre pas", "Micros affiche une erreur de base de données ou de connexion", "Micros se ferme inopinément"],
+    "steps": [
+      { "e": "globe", "t": "Vérifiez la **connexion réseau** de la caisse (câble RJ45 branché, LEDs allumées)" },
+      { "e": "xCircle", "t": "**Fermez complètement** Micros et relancez l'application" },
+      { "e": "monitor", "t": "Vérifiez si le **serveur Micros** est accessible — testez depuis un autre poste" },
+      { "e": "monitor", "t": "Vérifiez si **d'autres collègues** ont le même problème — si oui, c'est un incident serveur" },
+      { "e": "refreshCw", "t": "**Redémarrez la caisse** et relancez l'application Micros" },
+      { "e": "phone", "t": "Si le problème persiste, **escaladez au support N2** avec le message d'erreur exact" }
+    ]
+  },
+  {
+    "id": 28, "title": "Lecteur – Ne Répond Pas", "icon": "search", "cat": "Matériel",
+    "iconColor": "#64748b", "iconBg": "#f8fafc", "p": "P3", "pl": "NORMAL",
+    "keys": ["lecteur", "lecteur carte", "lecteur code barre", "scanner", "lecteur non reconnu", "lecteur bloqué", "code barre", "badge lecteur"],
+    "time": "3 min",
+    "note": "Si le lecteur n'est toujours pas reconnu après redémarrage, il peut s'agir d'un problème matériel — créez un ticket.",
+    "symptoms": ["Le lecteur de code-barre ou de carte ne répond pas", "Le lecteur n'est pas reconnu par Windows", "La lecture est partielle ou les données sont incorrectes"],
+    "steps": [
+      { "e": "plug", "t": "Vérifiez que le **câble USB du lecteur** est bien branché — essayez un autre port USB" },
+      { "e": "refreshCw", "t": "**Débranchez** puis **rebranchez** le lecteur — attendez 5 secondes entre les deux" },
+      { "e": "monitor", "t": "Vérifiez dans le **Gestionnaire de périphériques** que le lecteur est reconnu (pas de triangle jaune)" },
+      { "e": "refreshCw", "t": "**Redémarrez l'ordinateur** pour forcer la réinstallation automatique des pilotes" },
+      { "e": "eye", "t": "Testez le lecteur avec **un autre câble USB** si disponible" },
+      { "e": "phone", "t": "Si toujours non reconnu, **créez un ticket matériel** avec le modèle du lecteur" }
+    ]
+  },
+  {
+    "id": 29, "title": "Mot de Passe Self-Service", "icon": "unlock", "cat": "Guide",
+    "iconColor": "#6366f1", "iconBg": "#eef2ff", "p": "P3", "pl": "NORMAL",
+    "keys": ["self service", "self-service", "mot de passe self", "portail mot de passe", "changer mdp", "reset autonome", "portail self service"],
+    "guideFile": "guide/Guide - Changement mot de passe self-service.pdf",
+    "time": "3 min",
+    "note": "Téléchargez le guide PDF pour un accompagnement visuel complet de la procédure.",
+    "symptoms": ["Changer son mot de passe de façon autonome", "Accéder au portail self-service sans le support", "Réinitialiser son mot de passe depuis le portail"],
+    "steps": [
+      { "e": "globe", "t": "Ouvrez votre navigateur et accédez au **portail self-service** Akwa Group" },
+      { "e": "user", "t": "Connectez-vous avec votre **adresse email professionnelle** (@akwagroup.ma)" },
+      { "e": "key", "t": "Suivez les étapes pour **modifier ou réinitialiser** votre mot de passe" },
+      { "e": "checkCircle", "t": "Consultez le **guide PDF complet** ci-dessous pour un accompagnement visuel" }
+    ]
+  },
+  {
+    "id": 30, "title": "Station VID Pompiste", "icon": "monitor", "cat": "Guide",
+    "iconColor": "#0ea5e9", "iconBg": "#f0f9ff", "p": "P3", "pl": "NORMAL",
+    "keys": ["station vid", "pompiste", "station pompiste", "vid pompiste", "poste pompiste", "configuration pompiste"],
+    "guideFile": "guide/Guide STATION VID POMPISTE.pdf",
+    "time": "5 min",
+    "note": "Téléchargez le guide PPTX pour la procédure complète de configuration et d'utilisation.",
+    "symptoms": ["Configurer ou utiliser la station VID Pompiste", "Problème sur le poste pompiste", "Guide de formation station VID"],
+    "steps": [
+      { "e": "monitor", "t": "Vérifiez que la **station VID Pompiste** est allumée et connectée au réseau" },
+      { "e": "settings", "t": "Vérifiez l'**état des périphériques** connectés à la station (écran, lecteur, imprimante)" },
+      { "e": "refreshCw", "t": "Si la station ne répond pas, **redémarrez-la** et attendez le démarrage complet" },
+      { "e": "checkCircle", "t": "Consultez le **guide de formation complet** ci-dessous pour la configuration détaillée" }
+    ],
+    "video": "guide/guide Commande station.webm"
+  },
+  {
+    "id": 31, "title": "Connexion Azure – Problème", "icon": "cloud", "cat": "Applications",
+    "iconColor": "#0078d4", "iconBg": "#e6f3ff", "p": "P2", "pl": "IMPORTANT",
+    "keys": ["azure", "portail azure", "cloud azure", "azure inaccessible", "azure connexion", "microsoft azure", "portail cloud", "azure login", "session azure"],
+    "time": "3 min",
+    "note": "Ne pas cocher 'Mots de passe enregistrés' pour ne pas perdre vos identifiants.",
+    "symptoms": ["La page Azure ne se charge pas", "Erreur de connexion sur le portail Azure", "Session Azure expirée ou bloquée"],
+    "steps": [
+      { "e": "globe", "t": "Ouvrez **Google Chrome** et cliquez sur les **3 points** en haut à droite" },
+      { "e": "trash", "t": "Cliquez sur **Supprimer les données de navigation**" },
+      { "e": "calendar", "t": "Sélectionnez la plage **'Depuis le début'**" },
+      { "e": "clipboard", "t": "Cochez tout l'historique **sauf les mots de passe enregistrés**" },
+      { "e": "checkCircle", "t": "Cliquez sur **Supprimer les données** et attendez la fin de l'opération" },
+      { "e": "refreshCw", "t": "Relancez Chrome et accédez au **portail Azure** — la connexion devrait fonctionner" }
+    ],
+    "imgs": [
+      "problemes solution/Problème Azure/Image (3).jfif",
+      "problemes solution/Problème Azure/Image (4).jfif"
+    ]
+  },
+  {
+    "id": 32, "title": "Xcally – Problème Connexion", "icon": "phone", "cat": "Applications",
+    "iconColor": "#7c3aed", "iconBg": "#f5f3ff", "p": "P2", "pl": "IMPORTANT",
+    "keys": ["xcally", "xcally ne fonctionne pas", "centre d'appel", "softphone", "xcally déconnecté", "xcally erreur", "casque xcally", "appel centre xcally"],
+    "time": "5 min",
+    "note": "L'adresse IPv4 doit impérativement commencer par 10.10.30.X pour que Xcally fonctionne correctement.",
+    "symptoms": ["Xcally ne se connecte pas au serveur", "Impossible de passer ou recevoir des appels", "Le softphone Xcally affiche une erreur réseau"],
+    "steps": [
+      { "e": "wifi", "t": "Vérifiez votre **connexion réseau** — sur PC portable, assurez-vous que le **VPN est déconnecté**" },
+      { "e": "plug", "t": "Vérifiez que votre **casque est bien branché** au port USB ou Jack de votre ordinateur" },
+      { "e": "monitor", "t": "Ouvrez l'**invite de commandes (CMD)** : appuyez sur `Win + R`, tapez `cmd` et validez" },
+      { "e": "activity", "t": "Tapez **ipconfig** et appuyez sur Entrée — repérez l'adresse **IPv4**" },
+      { "e": "checkCircle", "t": "L'adresse IPv4 doit commencer par **10.10.30.X** — si c'est le cas, relancez Xcally" },
+      { "e": "phone", "t": "Si l'adresse IPv4 est différente de 10.10.30.X, **contactez le support** — problème réseau à escalader" }
+    ],
+    "imgs": ["problemes solution/Problème xcally/Image (2).jfif"]
+  },
+  {
+    "id": 33, "title": "Imprimante Hors Ligne (MyQ)", "icon": "printer", "cat": "Matériel",
+    "iconColor": "#dc2626", "iconBg": "#fef2f2", "p": "P2", "pl": "IMPORTANT",
+    "keys": ["imprimante hors ligne", "imprimante offline", "imprimante déconnectée", "imprimante myq", "embedded down", "snmp", "imprimante ne répond plus", "imprimante réseau"],
+    "time": "5 min",
+    "note": "Le statut 'Embedded Down' signifie que l'imprimante ne communique plus avec le serveur MyQ via SNMP. Si le redémarrage ne suffit pas, escaladez au support N2.",
+    "symptoms": ["L'imprimante affiche 'Embedded Down' dans MyQ", "L'imprimante n'est pas accessible depuis le réseau", "Impossible d'envoyer un document à l'imprimante"],
+    "steps": [
+      { "e": "plug", "t": "Vérifiez que le **câble réseau** est bien branché à l'imprimante et au port réseau mural" },
+      { "e": "eye", "t": "Vérifiez le **port réseau (switch)** — testez un autre port si le câble semble OK" },
+      { "e": "refreshCw", "t": "**Éteignez l'imprimante** (bouton power), attendez **30 secondes**, puis rallumez" },
+      { "e": "hourglass", "t": "Attendez **2–3 minutes** après le redémarrage que l'imprimante s'initialise complètement" },
+      { "e": "monitor", "t": "Depuis **MyQ (srv-myq-01:8090)**, vérifiez que l'imprimante redevient **En ligne**" },
+      { "e": "phone", "t": "Si l'imprimante reste **'Embedded Down'**, escaladez au **support N2** — problème SNMP/réseau" }
+    ],
+    "imgs": ["problemes solution/Problème imprimante/Image.jfif"]
+  },
+  {
+    "id": 18, "title": "Configuration VPN WARP", "icon": "shield", "cat": "Guide",
+    "iconColor": "#f97316", "iconBg": "#fff7ed", "p": "P3", "pl": "NORMAL",
+    "keys": ["vpn", "warp", "cloudflare", "apps-portal", "zero trust", "azure ad", "connexion vpn", "client vpn", "warp déconnecté"],
+    "guideFile": "guide/Guide Configuration VPN WARP.pptx",
+    "time": "5 min",
+    "note": "Le nom d'équipe à renseigner est exactement : apps-portal (tout en minuscules, sans espace).",
+    "symptoms": ["Le client WARP apparaît déconnecté dans la barre des tâches", "Impossible d'accéder aux ressources internes Akwa", "WARP n'est pas encore configuré avec Cloudflare Zero Trust"],
+    "steps": [
+      { "e": "cloud", "t": "Cliquez sur l'**icône nuage WARP** dans la barre des tâches, puis sur l'**icône réglages** (engrenage en bas à droite)" },
+      { "e": "settings", "t": "Dans le menu qui s'ouvre, cliquez sur **Préférences**" },
+      { "e": "user", "t": "Dans la popup, cliquez sur l'onglet **Compte**" },
+      { "e": "link", "t": "Cliquez sur **Se connecter avec Cloudflare Zero Trust**" },
+      { "e": "checkCircle", "t": "Dans la popup suivante, cliquez sur **Suivant** puis sur **Accepter**" },
+      { "e": "building", "t": "Renseignez **apps-portal** comme nom d'équipe, puis validez" },
+      { "e": "globe", "t": "Vous serez redirigé vers votre navigateur — cliquez sur **Azure AD – AKWA Azure AD**" },
+      { "e": "unlock", "t": "Sur la page qui s'affiche, cliquez sur **Ouvrir Cloudflare WARP**" },
+      { "e": "checkCircle", "t": "Le client devient bleu — cliquez sur l'icône pour vous **connecter**. WARP est opérationnel !" }
+    ]
+  }
+]

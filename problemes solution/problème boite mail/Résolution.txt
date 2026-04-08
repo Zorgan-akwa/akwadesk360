@@ -1,0 +1,9 @@
+Problème boite messagerie déconncté : vefrifier la connexion si tu as connecté 
+
+entrer sur navigateur taper mail.akwagroup.com 
+
+entrer votre login et mdp si le meme probléme 
+
+tester le lien suivante outlook.office.com 
+
+authenfier par votre session

@@ -1,0 +1,5 @@
+Verifier la connexion si le pc portable verifier vpn est déconncté OU bien casque est bien brancher 
+
+Taper sur recherche CMD -->ipconfig 
+
+Verifier que addresse ipv4 est 10.10.30.X

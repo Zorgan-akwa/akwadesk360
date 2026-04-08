@@ -1,0 +1,3 @@
+
+Verifier cable réseaux brancher et le port réseau clienté
+Redémarrer imprimante :embeded down car imprimante n'est pas connecté avec serveur myq par PROTOCOLS (SNMP)
