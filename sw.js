@@ -1,4 +1,4 @@
-const CACHE = 'akwa-it-v40';
+const CACHE = 'akwa-it-v43';
 const ASSETS = [
   './',
   './index.html',

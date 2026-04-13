@@ -51,7 +51,6 @@ const IC = {
 
 // ── GUIDE VIDEOS ──────────────────────────────────────────────────────────────
 const GUIDE_VIDEOS = [
-  { title: "Connexion TPE Wi-Fi",    src: "guide/guide connexion TPE.webm",        cat: "TPE / APOS",    problemIds: [1, 2, 3] },
   { title: "Guide Carte Afriquia",   src: "guide/Guide carte afriquia.webm",       cat: "TPE / APOS",    problemIds: [] },
   { title: "Commande Station",       src: "guide/guide Commande station.webm",     cat: "Station VID",   problemIds: [30] },
   { title: "Transaction Carte SNTL", src: "guide/Transaction carte Sntl.webm",    cat: "TPE / APOS",    problemIds: [] },
@@ -865,20 +864,52 @@ function renderVideoStrip() {
     <div class="video-section">
       <div class="video-section-head">
         <span class="video-section-title">${IC.video} Vidéos tutoriels</span>
-        <span class="video-section-count">${GUIDE_VIDEOS.length} guides</span>
+        <div class="video-nav">
+          <button class="video-nav-btn" id="vscroll-prev" onclick="scrollVideos(-1)" aria-label="Précédent">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="video-nav-btn" id="vscroll-next" onclick="scrollVideos(1)" aria-label="Suivant">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
       </div>
-      <div class="video-scroll">
-        ${GUIDE_VIDEOS.map((v, i) => `
-          <button class="video-card" onclick="openVideoModal(${i})" aria-label="Regarder : ${v.title}">
-            <div class="video-thumb">
-              <video src="${encodeURI(v.src)}" preload="metadata" muted playsinline tabindex="-1"></video>
-              <div class="video-play-btn">${IC.play}</div>
-              <div class="video-cat-badge">${v.cat}</div>
-            </div>
-            <div class="video-card-title">${v.title}</div>
-          </button>`).join('')}
+      <div class="video-scroll-wrap">
+        <div class="video-scroll" id="video-scroll">
+          ${GUIDE_VIDEOS.map((v, i) => `
+            <button class="video-card" onclick="openVideoModal(${i})" aria-label="Regarder : ${v.title}">
+              <div class="video-thumb">
+                <video src="${encodeURI(v.src)}" preload="metadata" muted playsinline tabindex="-1"></video>
+                <div class="video-play-btn">${IC.play}</div>
+                <div class="video-cat-badge">${v.cat}</div>
+              </div>
+              <div class="video-card-title">${v.title}</div>
+            </button>`).join('')}
+        </div>
+        <div class="video-fade-right"></div>
       </div>
     </div>`;
+  updateVideoNavBtns();
+  document.getElementById('video-scroll')?.addEventListener('scroll', updateVideoNavBtns, { passive: true });
+}
+
+function scrollVideos(dir) {
+  const el = document.getElementById('video-scroll');
+  if (!el) return;
+  const cardW = el.querySelector('.video-card')?.offsetWidth || 160;
+  el.scrollBy({ left: dir * (cardW + 10) * 2, behavior: 'smooth' });
+}
+
+function updateVideoNavBtns() {
+  const el = document.getElementById('video-scroll');
+  const prev = document.getElementById('vscroll-prev');
+  const next = document.getElementById('vscroll-next');
+  if (!el || !prev || !next) return;
+  const atStart = el.scrollLeft <= 4;
+  const atEnd   = el.scrollLeft + el.clientWidth >= el.scrollWidth - 4;
+  prev.disabled = atStart;
+  next.disabled = atEnd;
+  prev.classList.toggle('video-nav-btn--dim', atStart);
+  next.classList.toggle('video-nav-btn--dim', atEnd);
 }
 
 function openVideoModal(index) {
@@ -954,6 +985,8 @@ function showView(name) {
   document.querySelectorAll('#sidebar .sb-btn').forEach(b => b.classList.remove('active'));
   const sbBtn = document.getElementById(sbMap[name]);
   if (sbBtn) sbBtn.classList.add('active');
+  // Retour à l'accueil → grille des catégories
+  if (name === 'home') { activeGroup = 'all'; renderGroups(); }
   window.scrollTo(0, 0);
 }
 
@@ -966,16 +999,32 @@ function openGuide(problem) {
 
 // ── CATEGORIES ────────────────────────────────────────────────────────────────
 function buildCats() {
-  const tabs = [{ id: 'all', label: 'Tous' }, ...GROUPS.map(g => ({ id: g.id, label: g.label }))];
-  document.getElementById('cats').innerHTML = tabs.map(t =>
-    `<button class="cat-btn ${t.id === activeGroup ? 'active' : ''}" onclick="selectCat('${t.id}')">${t.label}</button>`
-  ).join('');
+  // Tab bar replaced by category grid — hide the old cats strip
+  const cats = document.getElementById('cats');
+  if (cats) cats.style.display = 'none';
 }
 
 function selectCat(id) {
   activeGroup = id;
-  buildCats();
   renderGroups();
+  window.scrollTo(0, 0);
+}
+
+function catCardHtml(g) {
+  const total = g.items.length;
+  const preview = g.items.slice(0, 3).map(i => `<span class="cat-card-item">· ${i.label}</span>`).join('');
+  return `
+<button class="cat-card" onclick="selectCat('${g.id}')">
+  <div class="cat-card-head">
+    <div class="cat-card-icon" style="background:${g.bg};color:${g.color}">${IC[g.icon]}</div>
+    <div class="cat-card-meta">
+      <div class="cat-card-title">${g.label}</div>
+      <div class="cat-card-count">${total} problème${total > 1 ? 's' : ''}</div>
+    </div>
+    <svg class="cat-card-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+  </div>
+  <div class="cat-card-items">${preview}</div>
+</button>`;
 }
 
 // ── PROBLEM LIST ─────────────────────────────────────────────────────────────
@@ -1016,8 +1065,8 @@ function ticketItemHtml(label, g) {
 function renderGroups() {
   const q = document.getElementById('search').value.toLowerCase().trim();
   const wrap = document.getElementById('problem-list');
-  const visibleGroups = activeGroup === 'all' ? GROUPS : GROUPS.filter(g => g.id === activeGroup);
 
+  // ── Mode recherche : liste plate tous problèmes ──────────────────────────────
   if (q) {
     const list = PROBLEMS.filter(p =>
       p.title.toLowerCase().includes(q) ||
@@ -1040,25 +1089,37 @@ function renderGroups() {
     return;
   }
 
-  wrap.innerHTML = visibleGroups.map(g => {
-    const items = g.items.map(item => {
-      if (item.problemId) {
-        const p = PROBLEMS.find(pr => pr.id === item.problemId);
-        return p ? pcardHtml(p) : ticketItemHtml(item.label, g);
-      }
-      return ticketItemHtml(item.label, g);
-    }).join('');
+  // ── Grille des catégories ────────────────────────────────────────────────────
+  if (activeGroup === 'all') {
+    wrap.innerHTML = `<div class="cat-grid">${GROUPS.map(g => catCardHtml(g)).join('')}</div>`;
+    return;
+  }
 
-    return `
-  <div class="group-section">
-    <div class="group-header">
-      <div class="group-icon" style="background:${g.bg};color:${g.color}">${IC[g.icon]}</div>
-      <span class="group-label">${g.label}</span>
-      <span class="group-count">${g.items.length}</span>
-    </div>
-    <div class="group-items">${items}</div>
-  </div>`;
+  // ── Liste des problèmes d'une catégorie ──────────────────────────────────────
+  const g = GROUPS.find(gr => gr.id === activeGroup);
+  if (!g) { activeGroup = 'all'; renderGroups(); return; }
+
+  const items = g.items.map(item => {
+    if (item.problemId) {
+      const p = PROBLEMS.find(pr => pr.id === item.problemId);
+      return p ? pcardHtml(p) : ticketItemHtml(item.label, g);
+    }
+    return ticketItemHtml(item.label, g);
   }).join('');
+
+  wrap.innerHTML = `
+<div class="cat-list-header">
+  <button class="cat-back-btn" onclick="selectCat('all')">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    Toutes les catégories
+  </button>
+  <div class="cat-list-title-row">
+    <div class="cat-list-icon" style="background:${g.bg};color:${g.color}">${IC[g.icon]}</div>
+    <span class="cat-list-title-text">${g.label}</span>
+    <span class="group-count">${g.items.length}</span>
+  </div>
+</div>
+<div class="group-items">${items}</div>`;
 }
 
 // ── GUIDE ─────────────────────────────────────────────────────────────────────
@@ -1247,6 +1308,28 @@ function initChat() {
 }
 
 function norm(s) { return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); }
+
+// Après une réponse IA textuelle, détecter le problème discuté et proposer la carte guide+vidéo
+function suggestGuideCard(userMessage, botReply) {
+  const combined = norm((userMessage || '') + ' ' + (botReply || ''));
+  let bestScore = 0;
+  let bestProblem = null;
+
+  for (const p of PROBLEMS) {
+    let score = 0;
+    p.keys.forEach(k => { if (combined.includes(norm(k))) score += 2; });
+    norm(p.title).split(/\s+/).forEach(w => { if (w.length >= 4 && combined.includes(w)) score += 1; });
+    (p.symptoms || []).forEach(s => {
+      const excerpt = norm(s).slice(0, 20);
+      if (excerpt.length > 6 && combined.includes(excerpt)) score += 1;
+    });
+    if (score > bestScore) { bestScore = score; bestProblem = p; }
+  }
+
+  if (bestScore >= 2 && bestProblem) {
+    setTimeout(() => showLocalProblemCard(bestProblem), 350);
+  }
+}
 
 function localReply(text) {
   const q = norm(text);
@@ -1515,7 +1598,10 @@ async function sendChat() {
     } else if (data.type === 'unidentified') {
       addUnidentifiedImageMessage();
     } else {
-      addMessage('bot', data.reply || 'Aucune réponse.');
+      const botReply = data.reply || 'Aucune réponse.';
+      addMessage('bot', botReply);
+      // Propose automatiquement la carte guide+vidéo si un problème est détecté
+      suggestGuideCard(text, botReply);
     }
   } catch (_err) {
     // Fallback to local assistant when network/function unavailable

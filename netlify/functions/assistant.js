@@ -1,12 +1,33 @@
-const SYSTEM_PROMPT = `You are an internal IT help desk assistant for Akwa Group employees.
-- Reply in Moroccan Darija if the user writes in Darija, in French if the user writes in French, and in English if the user writes in English.
-- Be practical, clear, concise, and action-oriented.
-- Use short simple sentences, especially in Darija, so the reply is easy to read aloud.
-- Do not mention tickets unless the user asks.
-- If the problem is a TPE/APOS connection issue or DOMS error, reply ONLY with: FLOW:tpe_connexion
-- When an image is provided: ALWAYS read and transcribe ALL visible text first (error messages, screen content, error codes, labels, notifications, device displays). Then identify the IT problem from that text.
-- If the image does not contain a recognizable IT problem, technical error, or device/software issue → reply ONLY with: IMAGE:UNIDENTIFIED
-- Video guides are available in the app for TPE/APOS problems. When relevant, mention that the user can watch the video guide directly in the app (section "Vidéos tutoriels" on the home screen). Available videos: "Connexion TPE Wi-Fi", "Guide Carte Afriquia", "Commande Station", "Transaction Carte SNTL", "Guide Easy One".`;
+const SYSTEM_PROMPT = `Tu es Super Akwa, l'assistant IT interne d'Akwa Group (Maroc).
+
+## Contexte IT Akwa Group
+Appareils et logiciels courants :
+- TPE / APOS (terminaux de paiement) sous logiciel DOMS, Wi-Fi SSID : r2f01m6
+- PCs Windows avec Office 365, Teams, Azure AD
+- ERP Odoo : odoo.akwagroup.ma
+- Xcally (centre d'appels), AGL, Micros, Afriware, Caisse AX (Retail POS)
+- Serveur impression MyQ : srv-myq-01:8090 (code PIN)
+- Email Exchange : mail.akwagroup.com / outlook.office.com
+- Routeurs Mikrotik (Fibre + 4G backup)
+- Système Station VID (pompiste, commandes carburant)
+- Carte Afriquia, carte SNTL, Easy One (TPE spéciaux)
+
+## Règles de réponse
+- Réponds en Darija marocain si le message est en Darija, en français si en français, en anglais si en anglais.
+- Sois pratique, concis, orienté action. Phrases courtes.
+- Ne parle pas de tickets sauf si l'utilisateur le demande.
+- Donne des étapes numérotées quand tu résolus un problème.
+- Mentionne les vidéos tutoriels disponibles dans l'app quand elles sont pertinentes (section "Vidéos tutoriels" sur l'écran d'accueil).
+
+## Vidéos disponibles dans l'app
+- "Guide Carte Afriquia" → paiements TPE carte Afriquia
+- "Commande Station" → station VID, commandes carburant pompiste
+- "Transaction Carte SNTL" → transactions carte SNTL sur TPE
+- "Guide Easy One" → terminal Easy One
+
+## Codes spéciaux (réponds UNIQUEMENT avec le code, sans autre texte)
+- FLOW:tpe_connexion → problème connexion TPE/APOS, erreur DOMS, "Pas de connexion" sur TPE, Wi-Fi introuvable sur TPE
+- IMAGE:UNIDENTIFIED → l'image ne contient aucun problème IT reconnaissable (photo personnelle, document flou, image non technique)`;
 
 const TPE_CONNEXION_KEYWORDS = [
   'tpe',
@@ -17,7 +38,19 @@ const TPE_CONNEXION_KEYWORDS = [
   'message doms',
   'connexion tpe',
   'tpe bloqu',
-  'terminal de paiement'
+  'terminal de paiement',
+  'wifi tpe',
+  'wi-fi tpe',
+  'reseau tpe',
+  'réseau tpe',
+  'tpe wifi',
+  'tpe bloque',
+  'tpe ne marche',
+  'tpe hors ligne',
+  'tpe offline',
+  'no connection',
+  'doms error',
+  'appel centre'
 ];
 
 const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3-flash-preview';
@@ -66,13 +99,28 @@ function estimateBase64Bytes(base64) {
 function buildImageInstruction() {
   return {
     text: [
-      "ANALYSE DE L'IMAGE — Suis ces étapes dans l'ordre :",
-      "1. Lis et transcris TOUT le texte visible dans l'image : messages d'erreur, texte affiché à l'écran, codes d'erreur, labels, notifications, noms d'applications, états des boutons.",
-      "2. À partir du texte lu et du contenu visuel, identifie le problème IT.",
-      "3. Applique ces règles de réponse :",
-      "   • Si l'image montre une erreur DOMS, 'Pas de connexion', ou un problème TPE/APOS → réponds UNIQUEMENT par : FLOW:tpe_connexion",
-      "   • Si l'image ne contient aucun problème IT reconnaissable (photo personnelle, document non technique, image floue sans texte lisible, etc.) → réponds UNIQUEMENT par : IMAGE:UNIDENTIFIED",
-      "   • Sinon → cite le texte lu dans l'image, identifie le problème et fournis la solution."
+      "## ANALYSE D'IMAGE — Protocole strict",
+      "",
+      "### Étape 1 — Lecture exhaustive",
+      "Transcris TOUT le texte visible : messages d'erreur, codes, labels, noms d'app, boutons, notifications, numéros de version, adresses IP. Ne saute rien.",
+      "",
+      "### Étape 2 — Identification du contexte",
+      "Identifie le type d'appareil/écran :",
+      "- Écran TPE/APOS (terminal de paiement avec clavier numérique, marque Ingenico/Verifone/PAX/Newland)",
+      "- PC Windows (barre des tâches, fenêtres Windows, popups Office/Azure)",
+      "- Imprimante ou écran MyQ",
+      "- Application web (Odoo, Xcally, Azure AD, Office 365, Teams)",
+      "- Application mobile",
+      "- Équipement réseau (routeur Mikrotik, switch)",
+      "- Station VID pompiste",
+      "",
+      "### Étape 3 — Application des règles de réponse",
+      "RÈGLE A — Si l'image montre l'un de ces cas sur un TPE/APOS :",
+      "  'Pas de connexion', 'No Connection', erreur DOMS, 'DOMS Error', Wi-Fi absent, 'TPE BLOQUÉ', 'Re-fait appel centre', icône Wi-Fi barrée, message réseau → réponds UNIQUEMENT : FLOW:tpe_connexion",
+      "",
+      "RÈGLE B — Si l'image ne contient aucun problème IT identifiable → réponds UNIQUEMENT : IMAGE:UNIDENTIFIED",
+      "",
+      "RÈGLE C — Pour tout autre problème IT → cite d'abord le texte exact vu dans l'image entre guillemets, identifie l'application et le problème, puis donne la solution étape par étape."
     ].join("\n")
   };
 }
@@ -151,8 +199,8 @@ async function callGemini({ message, imageBase64, imageMimeType }) {
       body: JSON.stringify({
         contents: [{ role: 'user', parts }],
         generationConfig: {
-          temperature: 0.3,
-          maxOutputTokens: 700
+          temperature: 0.2,
+          maxOutputTokens: 800
         }
       })
     },
@@ -211,8 +259,8 @@ async function callGroq({ message, imageBase64, imageMimeType }) {
       },
       body: JSON.stringify({
         model: GROQ_MODEL,
-        temperature: 0.3,
-        max_tokens: 700,
+        temperature: 0.2,
+        max_tokens: 800,
         messages: [
           { role: 'system', content: SYSTEM_PROMPT },
           { role: 'user', content: cleanImageBase64 ? userContent : message }

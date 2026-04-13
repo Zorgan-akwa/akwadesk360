@@ -657,6 +657,88 @@ body {
 .group-label { font-size: 14px; font-weight: 700; color: var(--text1); flex: 1; letter-spacing: -.02em }
 .group-count { background: var(--surface3); color: var(--text3); font-size: 10.5px; font-weight: 700; letter-spacing: .04em; padding: 2px 8px; border-radius: 99px; border: 1px solid var(--border) }
 
+/* ── CATEGORY GRID ─────────────────────────────────────────────────────────── */
+.cat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.cat-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px 12px 12px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform .20s var(--ease-spring), box-shadow .20s, border-color .20s;
+  position: relative;
+  overflow: hidden;
+}
+.cat-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--primary);
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform .22s var(--ease-spring);
+  border-radius: 0 2px 2px 0;
+}
+.cat-card:hover { transform: translateY(-2px); border-color: rgba(79,142,255,.25); box-shadow: 0 8px 28px rgba(0,0,0,.32) }
+.cat-card:hover::before { transform: scaleY(1) }
+
+.cat-card-head { display: flex; align-items: center; gap: 10px }
+
+.cat-card-icon {
+  width: 42px; height: 42px; min-width: 42px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.cat-card-icon svg { width: 20px !important; height: 20px !important; flex-shrink: 0 }
+
+.cat-card-meta { flex: 1; min-width: 0 }
+.cat-card-title { font-size: 13px; font-weight: 700; color: var(--text1); letter-spacing: -.01em; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+.cat-card-count { font-size: 10.5px; font-weight: 600; color: var(--text3) }
+
+.cat-card-chevron { width: 15px; height: 15px; color: var(--text4); flex-shrink: 0; transition: transform .18s, color .18s }
+.cat-card:hover .cat-card-chevron { transform: translateX(3px); color: var(--accent) }
+
+.cat-card-items { display: flex; flex-direction: column; gap: 2px }
+.cat-card-item { font-size: 11px; color: var(--text3); line-height: 1.45; overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+
+/* ── CATEGORY LIST HEADER (when a category is open) ────────────────────────── */
+.cat-list-header { margin-bottom: 14px }
+
+.cat-back-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12px; font-weight: 600; color: var(--accent);
+  background: none; border: none; cursor: pointer; padding: 0;
+  margin-bottom: 14px;
+  transition: opacity .15s;
+}
+.cat-back-btn:hover { opacity: .7 }
+.cat-back-btn svg { width: 15px; height: 15px }
+
+.cat-list-title-row {
+  display: flex; align-items: center; gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.cat-list-icon {
+  width: 36px; height: 36px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; border: 1px solid var(--border);
+}
+.cat-list-icon svg { width: 18px !important; height: 18px !important }
+.cat-list-title-text { font-size: 16px; font-weight: 800; color: var(--text1); flex: 1; letter-spacing: -.02em }
+
 .info-banner { background: var(--amber-bg); border: 1px solid var(--amber-border); border-left: 3px solid var(--amber); border-radius: 0 10px 10px 0; padding: 10px 13px; font-size: 12.5px; color: #FCD34D; line-height: 1.55; display: flex; align-items: flex-start; gap: 9px; margin-bottom: 14px }
 .info-banner svg { width: 15px; height: 15px; color: var(--amber); flex-shrink: 0; margin-top: 1px }
 
@@ -1672,6 +1754,21 @@ button:not(:disabled):active, .qa-card:active, .pcard:active, .contact-card:acti
   to   { opacity: 1; transform: none }
 }
 
+/* Category card entrance — pop in from below */
+.cat-card {
+  animation: catCardIn .30s var(--ease-spring) both;
+}
+.cat-card:nth-child(1) { animation-delay: .03s }
+.cat-card:nth-child(2) { animation-delay: .07s }
+.cat-card:nth-child(3) { animation-delay: .11s }
+.cat-card:nth-child(4) { animation-delay: .15s }
+.cat-card:nth-child(5) { animation-delay: .19s }
+.cat-card:nth-child(6) { animation-delay: .23s }
+@keyframes catCardIn {
+  from { opacity: 0; transform: translateY(10px) scale(.97) }
+  to   { opacity: 1; transform: none }
+}
+
 /* Contact cards — fade up staggered */
 .contact-card {
   animation: contactIn .4s var(--ease-out) both;
@@ -1794,7 +1891,7 @@ button:not(:disabled):active, .qa-card:active, .pcard:active, .contact-card:acti
   #main-content::after { display: none }
   .pcard, .contact-card, .scard,
   #sidebar .sb-btn, .badge, .pill,
-  .group-header, .qa-card { animation: none }
+  .group-header, .qa-card, .cat-card { animation: none }
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -2012,6 +2109,13 @@ button:not(:disabled):active, .qa-card:active, .pcard:active, .contact-card:acti
 /* ── Group icon ── */
 .group-icon { background: rgba(79,142,255,.10); border: 1px solid rgba(79,142,255,.18) }
 .group-count { background: rgba(79,142,255,.10); color: var(--primary); border-color: rgba(79,142,255,.18) }
+
+/* ── Category cards (light mode) ── */
+.cat-card { background: #FFFFFF; border-color: rgba(30,58,138,.11); box-shadow: 0 2px 10px rgba(30,58,138,.07) }
+.cat-card:hover { background: #EAF0FF; border-color: rgba(79,142,255,.30); box-shadow: 0 8px 28px rgba(30,58,138,.14) }
+.cat-card-title { color: #1a2540 }
+.cat-back-btn { color: var(--primary) }
+.cat-list-title-row { border-color: rgba(30,58,138,.12) }
 
 /* ── Scard icon ── */
 .scard-icon { background: rgba(79,142,255,.10); border: 1px solid rgba(79,142,255,.18) }
@@ -2426,6 +2530,41 @@ button:not(:disabled):active, .qa-card:active, .pcard:active, .contact-card:acti
   margin-bottom: 11px;
 }
 
+.video-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.video-nav-btn {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background .15s, border-color .15s, opacity .15s;
+  flex-shrink: 0;
+}
+.video-nav-btn svg { width: 14px; height: 14px; color: var(--text2) }
+.video-nav-btn:hover:not(:disabled) { background: var(--surface3); border-color: rgba(79,142,255,.30) }
+.video-nav-btn:hover:not(:disabled) svg { color: var(--accent) }
+.video-nav-btn--dim { opacity: .35 }
+.video-nav-btn:disabled { cursor: default }
+
+.video-scroll-wrap {
+  position: relative;
+}
+
+.video-fade-right {
+  pointer-events: none;
+  position: absolute;
+  top: 0; right: 0; bottom: 4px;
+  width: 48px;
+  background: linear-gradient(to right, transparent, var(--bg));
+  border-radius: 0 14px 14px 0;
+}
+
 .video-section-title {
   display: flex;
   align-items: center;
@@ -2451,9 +2590,11 @@ button:not(:disabled):active, .qa-card:active, .pcard:active, .contact-card:acti
   display: flex;
   gap: 10px;
   overflow-x: auto;
-  padding-bottom: 4px;
+  padding-bottom: 6px;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
 }
 
 .video-scroll::-webkit-scrollbar { display: none }
@@ -2470,6 +2611,7 @@ button:not(:disabled):active, .qa-card:active, .pcard:active, .contact-card:acti
   text-align: left;
   transition: border-color .2s, transform .2s, box-shadow .2s;
   box-shadow: var(--shadow-sm);
+  scroll-snap-align: start;
 }
 
 .video-card:hover, .video-card:focus {
